@@ -2,11 +2,11 @@
   "apiVersion": "tanka.dev/v1alpha1",
   "kind": "Environment",
   "metadata": {
-    "name": "lib/prometheus_grafana/environments/production"
+    "name": "environments/production"
   },
   "spec": {
     "apiServer": "https://127.0.0.1:54893",
-    "namespace": "prom-grafana-prod",
+    "namespace": "promgrafana",
     "resourceDefaults": {},
     "expectVersions": {}
   }
