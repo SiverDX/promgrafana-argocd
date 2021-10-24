@@ -5,6 +5,7 @@
       global: {
         scrape_interval: "15s",
         evaluation_interval: "15s",
+      },
 
       scrape_configs: [
         {
@@ -21,7 +22,6 @@
           static_configs: { targets: ["10.106.49.6:80"] }
         }
       ]
-      }
     })
   },
 
