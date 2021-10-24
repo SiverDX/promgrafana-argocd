@@ -12,6 +12,14 @@
     }
   },
 
+  _configDataYAML:: {},
+
+  _mounts:: {
+    configMapMount: "/prometheus-config"
+  },
+
+  _configPath:: "",
+
   _images+:: {
     promgrafana: {
       grafana: "grafana/grafana",

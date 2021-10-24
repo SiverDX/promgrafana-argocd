@@ -5,8 +5,14 @@
   local container = $.core.v1.container,
   local port = $.core.v1.containerPort,
   local service = $.core.v1.service,
+  local configMap = $.core.v1.configMap,
 
   local config = $._config.promgrafana,
+
+  configData:: $._configDataYAML,
+
+  configMap: configMap.new("prometheus-config") +
+             configMap.withData($.configData),
 
   promgrafana: {
     prometheus: {
@@ -14,9 +20,10 @@
         name = config.prometheus.name, replicas = 1,
         containers = [
           container.new(config.prometheus.name, $._images.promgrafana.prometheus)
-          + container.withPorts([port.new("api", config.prometheus.port)]),
+          + container.withPorts([port.new("api", config.prometheus.port)])
+          + container.withArgs($._configPath),
         ],
-      ),
+      ) + $.util.configMapVolumeMount($.configMap, $._mounts.configMapMount),
       service: $.util.serviceFor(self.deployment),
     },
 

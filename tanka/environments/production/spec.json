@@ -5,7 +5,7 @@
     "name": "environments/production"
   },
   "spec": {
-    "apiServer": "https://127.0.0.1:54893",
+    "apiServer": "https://127.0.0.1:51459",
     "namespace": "promgrafana",
     "resourceDefaults": {},
     "expectVersions": {}
